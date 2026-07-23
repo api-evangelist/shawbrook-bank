@@ -1,0 +1,152 @@
+aid: shawbrook-bank
+url: https://raw.githubusercontent.com/api-evangelist/shawbrook-bank/refs/heads/main/apis.yml
+name: Shawbrook Bank
+kind: company
+description: >-
+  Shawbrook Bank Limited is a specialist UK savings and lending bank
+  (trading as Shawbrook, part of Shawbrook Group plc, which listed on the
+  London Stock Exchange in October 2025 after being owned by a consortium
+  led by BC Partners and Pollen Street Capital since 2017). It is
+  authorised by the Prudential Regulation Authority and regulated by the
+  Financial Conduct Authority and the PRA, and its deposits are protected
+  by the Financial Services Compensation Scheme. Shawbrook focuses on
+  personal and business savings and specialist lending (property finance,
+  SME and asset finance, and consumer lending) rather than personal
+  current accounts, so it is not one of the nine CMA-mandated banks
+  (CMA9). As an FCA-authorised deposit-taker it operates within the UK
+  Open Banking / PSD2 framework: it consumes Open Banking (using account
+  verification via Consents.Online to confirm customers' linked nominated
+  accounts) more than it publishes ASPSP surfaces. As of this review
+  Shawbrook does not operate a public developer portal, and no Shawbrook
+  Open Data (ATM/branch/product) endpoint or bank-specific Read/Write
+  API host could be confirmed live; the OBIE Open Data and Read/Write
+  API families are represented here as the shared Open Banking standard
+  that an FCA-authorised ASPSP conforms to, not as verified Shawbrook
+  contracts.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Financial Services
+- Banking
+- Savings
+- Specialist Lending
+- Open Banking
+- PSD2
+- OBIE
+- United Kingdom
+- Payments
+- Account Information
+created: '2026-07-23'
+modified: '2026-07-23'
+specificationVersion: '0.19'
+apis:
+- aid: shawbrook-bank:shawbrook-open-data-api
+  name: Shawbrook Open Data API (OBIE Standard, Unverified)
+  description: >-
+    UK Open Banking Open Data API — the PUBLIC, unauthenticated reference-data
+    surface (ATM locations, branches, personal and business current accounts,
+    unsecured SME loans, commercial credit cards) defined by the Open Banking
+    Implementation Entity (OBIE) Open Data Standard v1.3. No Shawbrook-hosted
+    Open Data endpoint could be confirmed live (probes of shawbrook.co.uk
+    /open-banking paths and /.well-known/open-banking returned HTTP 404), and
+    as a specialist savings/lending bank without a branch or ATM network
+    Shawbrook has minimal Open Data obligations. The harvested spec is the
+    shared OBIE standard, NOT a Shawbrook contract.
+  humanURL: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  tags:
+  - Open Data
+  - Public
+  - Reference Data
+  properties:
+  - type: OpenAPI
+    url: openapi/obie-opendata-swagger.json
+  - type: Documentation
+    url: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
+  - type: SourceCode
+    url: https://github.com/OpenBankingUK/opendata-api-spec-compiled
+- aid: shawbrook-bank:shawbrook-account-transaction-api
+  name: Shawbrook Account & Transaction Information API (AIS, OBIE Standard, Unverified)
+  description: >-
+    UK Open Banking Read/Write Account & Transaction Information API (AISP) as
+    defined by the OBIE Account and Transaction API Specification v4.0.1
+    (OpenAPI 3.0.0). FAPI-secured — OAuth2/OIDC authorization, mutual-TLS
+    client authentication, and PSD2 strong customer authentication — requiring
+    developer onboarding with OBIE/eIDAS certificates. No Shawbrook-specific
+    ASPSP host or developer portal could be confirmed; the harvested spec is
+    the shared OBIE standard a UK ASPSP conforms to, not a verified Shawbrook
+    contract.
+  humanURL: https://standards.openbanking.org.uk/api-specifications/
+  tags:
+  - Account Information
+  - AISP
+  - Read Write
+  - FAPI
+  properties:
+  - type: OpenAPI
+    url: openapi/obie-account-info-openapi.yaml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/api-specifications/
+  - type: SourceCode
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: shawbrook-bank:shawbrook-payment-initiation-api
+  name: Shawbrook Payment Initiation API (PIS, OBIE Standard, Unverified)
+  description: >-
+    UK Open Banking Read/Write Payment Initiation API (PISP) as defined by the
+    OBIE Payment Initiation API Specification v4.0.1 (OpenAPI 3.0.0).
+    FAPI-secured with OAuth2/OIDC, mutual-TLS, and PSD2 strong customer
+    authentication, gated behind OBIE/eIDAS-certificate onboarding. No
+    Shawbrook-specific ASPSP host or developer portal could be confirmed; the
+    harvested spec is the shared OBIE standard, not a verified Shawbrook
+    contract.
+  humanURL: https://standards.openbanking.org.uk/api-specifications/
+  tags:
+  - Payment Initiation
+  - PISP
+  - Read Write
+  - FAPI
+  properties:
+  - type: OpenAPI
+    url: openapi/obie-payment-initiation-openapi.yaml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/api-specifications/
+  - type: SourceCode
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+- aid: shawbrook-bank:shawbrook-confirmation-of-funds-api
+  name: Shawbrook Confirmation of Funds API (CBPII, OBIE Standard, Unverified)
+  description: >-
+    UK Open Banking Read/Write Confirmation of Funds API (CBPII) as defined by
+    the OBIE Confirmation of Funds API Specification v4.0.1 (OpenAPI 3.0.0).
+    FAPI-secured with OAuth2/OIDC, mutual-TLS, and PSD2 SCA, requiring
+    OBIE/eIDAS-certificate onboarding. No Shawbrook-specific ASPSP host or
+    developer portal could be confirmed; the harvested spec is the shared OBIE
+    standard, not a verified Shawbrook contract.
+  humanURL: https://standards.openbanking.org.uk/api-specifications/
+  tags:
+  - Confirmation of Funds
+  - CBPII
+  - Read Write
+  - FAPI
+  properties:
+  - type: OpenAPI
+    url: openapi/obie-confirmation-funds-openapi.yaml
+  - type: Documentation
+    url: https://standards.openbanking.org.uk/api-specifications/
+  - type: SourceCode
+    url: https://github.com/OpenBankingUK/read-write-api-specs
+common:
+- type: Website
+  url: https://www.shawbrook.co.uk/
+- type: About
+  url: https://www.shawbrook.co.uk/about-us/
+- type: Blog
+  url: https://www.shawbrook.co.uk/newsroom/
+- type: Support
+  url: https://www.shawbrook.co.uk/help/
+- type: Contact
+  url: https://www.shawbrook.co.uk/contact-us/
+- type: PrivacyPolicy
+  url: https://www.shawbrook.co.uk/privacy-policy/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/shawbrook-bank/
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

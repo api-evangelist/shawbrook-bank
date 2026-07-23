@@ -1,0 +1,105 @@
+aid: shawbrook-bank
+name: Shawbrook Bank
+review:
+  question: Does Shawbrook Bank expose a public developer portal, a confirmed Open Data endpoint, or a bank-specific OBIE Read/Write API surface?
+  answer: false
+  date: '2026-07-23'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    Shawbrook Bank Limited is a specialist UK savings and lending bank
+    (Shawbrook Group plc, LSE-listed October 2025; previously BC Partners /
+    Pollen Street Capital owned). It is FCA/PRA authorised but is NOT one of
+    the CMA9 and does not offer personal current accounts, so its UK Open
+    Banking obligations are minimal. Shawbrook is primarily a CONSUMER of Open
+    Banking — it uses third-party account verification (Consents.Online) to
+    confirm customers' linked nominated accounts — rather than a publisher of
+    ASPSP APIs.
+
+    No public developer portal was found: developer.shawbrook.co.uk and
+    api.shawbrook.co.uk do not resolve (connection failed, HTTP 000). No
+    Shawbrook-hosted Open Data endpoint could be confirmed: probes of
+    www.shawbrook.co.uk/open-banking/v2.3/atms, /open-banking/v2.4/branches,
+    and /.well-known/open-banking all returned HTTP 404. The Open Banking
+    Tracker lists "No API products" for Shawbrook Bank Limited. Only the
+    corporate marketing site (www.shawbrook.co.uk, HTTP 200) and standard
+    informational pages (about, newsroom, help, contact, privacy policy) are
+    live.
+
+    No bank-proprietary OpenAPI/Swagger is publicly downloadable. The APIs
+    represented in apis.yml (Open Data, AIS, PIS, CBPII) are modeled from the
+    SHARED OBIE standard that any FCA-authorised ASPSP conforms to, clearly
+    labeled "OBIE Standard, Unverified" — they are NOT verified Shawbrook
+    contracts and no Shawbrook baseURL is asserted.
+  authModel:
+    readWriteStandard: OBIE Read/Write API Standard v4.0.1 (OpenAPI 3.0.0)
+    openDataStandard: OBIE Open Data Standard v1.3 (Swagger 2.0)
+    security: FAPI-grade OAuth2/OIDC, mutual-TLS client authentication, PSD2 strong customer authentication, OBIE/eIDAS certificate onboarding
+    note: Auth model describes the OBIE Read/Write standard; not independently verified against a Shawbrook host because none was found.
+  specProvenance:
+    openapiHarvested: true
+    provenance: OBIE-standard (shared), NOT bank-proprietary
+    files:
+      - path: openapi/obie-account-info-openapi.yaml
+        source: https://raw.githubusercontent.com/OpenBankingUK/read-write-api-specs/master/dist/openapi/account-info-openapi.yaml
+        title: Account and Transaction API Specification
+        version: 4.0.1
+      - path: openapi/obie-payment-initiation-openapi.yaml
+        source: https://raw.githubusercontent.com/OpenBankingUK/read-write-api-specs/master/dist/openapi/payment-initiation-openapi.yaml
+        title: Payment Initiation API
+        version: 4.0.1
+      - path: openapi/obie-confirmation-funds-openapi.yaml
+        source: https://raw.githubusercontent.com/OpenBankingUK/read-write-api-specs/master/dist/openapi/confirmation-funds-openapi.yaml
+        title: Confirmation of Funds API Specification
+        version: 4.0.1
+      - path: openapi/obie-opendata-swagger.json
+        source: https://raw.githubusercontent.com/OpenBankingUK/opendata-api-spec-compiled/master/opendata-swagger.json
+        title: Open Data API
+        version: v1.3
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://www.shawbrook.co.uk/
+      documented: true
+      note: Corporate marketing website only; not an API surface. HTTP 200.
+    - protocol: REST
+      scheme: https
+      note: OBIE Read/Write ASPSP surface (AIS/PIS/CBPII) — standard exists but no Shawbrook-specific host confirmed.
+      documented: false
+    - protocol: REST
+      scheme: https
+      note: OBIE Open Data (public/unauthenticated) — no Shawbrook host confirmed; /open-banking paths and /.well-known/open-banking returned HTTP 404.
+      documented: false
+  probes:
+    - url: https://www.shawbrook.co.uk/
+      status: 200
+    - url: https://developer.shawbrook.co.uk/
+      status: 000
+    - url: https://api.shawbrook.co.uk/
+      status: 000
+    - url: https://openbanking.shawbrook.co.uk/
+      status: 000
+    - url: https://www.shawbrook.co.uk/open-banking/v2.3/atms
+      status: 404
+    - url: https://www.shawbrook.co.uk/open-banking/v2.4/branches
+      status: 404
+    - url: https://www.shawbrook.co.uk/.well-known/open-banking
+      status: 404
+    - url: https://www.shawbrook.co.uk/.well-known/security.txt
+      status: 404
+sources:
+  - url: https://www.openbankingtracker.com/provider/shawbrook-bank-limited
+    type: Reference
+    note: Lists "No API products" for Shawbrook Bank Limited; recommends aggregators (Plaid/Tink/TrueLayer) for access.
+  - url: https://standards.openbanking.org.uk/api-specifications/
+    type: Documentation
+    note: OBIE Read/Write API Standard specifications (shared standard).
+  - url: https://github.com/OpenBankingUK/read-write-api-specs
+    type: SourceCode
+    note: Source of the harvested AIS/PIS/CBPII v4.0.1 standard specs.
+  - url: https://github.com/OpenBankingUK/opendata-api-spec-compiled
+    type: SourceCode
+    note: Source of the harvested Open Data v1.3 standard swagger.
+  - url: https://www.shawbrook.co.uk/savings/help/opening-an-account/
+    type: Documentation
+    note: Confirms Shawbrook consumes Open Banking (Consents.Online) for linked-account verification.
