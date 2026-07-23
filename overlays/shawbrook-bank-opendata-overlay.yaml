@@ -1,0 +1,16 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Shawbrook — OBIE Open Data
+  version: 1.0.0
+extends: openapi/obie-opendata-swagger.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: shawbrook-bank
+    x-apievangelist-standard: OBIE Open Data API v1.3
+    x-apievangelist-verified: false
+    x-apievangelist-note: >-
+      Shared OBIE Open Data (unauthenticated reference-data) standard. No
+      Shawbrook-hosted Open Data endpoint could be confirmed live; as a
+      specialist savings/lending bank without a branch/ATM network Shawbrook has
+      minimal Open Data obligations.

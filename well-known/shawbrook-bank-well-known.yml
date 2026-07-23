@@ -1,0 +1,32 @@
+generated: '2026-07-23'
+method: searched
+source: live probes of https://www.shawbrook.co.uk/.well-known/*
+host: https://www.shawbrook.co.uk
+note: >-
+  Shawbrook's corporate site runs on Umbraco CMS; the two discovery documents
+  found describe the Umbraco Delivery API member-authentication surface (site
+  member login/OIDC), NOT an Open Banking ASPSP authorization server. They are
+  the only machine-readable /.well-known/ documents Shawbrook publishes. No
+  security.txt, api-catalog, ai-plugin, or open-banking discovery document was
+  found.
+documents:
+- path: /.well-known/openid-configuration
+  status: 200
+  file: shawbrook-bank-openid-configuration.json
+  kind: openid-configuration
+  note: Umbraco member OIDC discovery (issuer https://www.shawbrook.co.uk/)
+- path: /.well-known/oauth-authorization-server
+  status: 200
+  file: shawbrook-bank-oauth-authorization-server.json
+  kind: oauth-authorization-server
+  note: RFC 8414 metadata mirroring the Umbraco member auth server
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404
+- path: /.well-known/open-banking
+  status: 404
+- path: /llms.txt
+  status: 404

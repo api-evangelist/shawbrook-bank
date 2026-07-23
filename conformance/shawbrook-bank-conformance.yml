@@ -1,0 +1,47 @@
+generated: '2026-07-23'
+method: derived
+source: >-
+  openapi/obie-account-info-openapi.yaml, openapi/obie-payment-initiation-openapi.yaml,
+  openapi/obie-confirmation-funds-openapi.yaml, openapi/obie-opendata-swagger.json
+note: >-
+  Standards conformance of the OBIE Read/Write + Open Data specifications this
+  repo harvests as the shared UK Open Banking standard an FCA-authorised ASPSP
+  conforms to. These are NOT verified Shawbrook-hosted contracts; derived from
+  the spec content (securitySchemes, FAPI headers, idempotency + JWS parameters,
+  scope maps).
+standards:
+- id: oauth2
+  conforms: true
+  evidence: securitySchemes TPPOAuth2Security (clientCredentials) + PSUOAuth2Security (authorizationCode)
+- id: oidc
+  conforms: true
+  evidence: PSU authorization-code flow with SCA is OIDC-based per OBIE profile
+- id: fapi
+  conforms: true
+  evidence: x-fapi-auth-date, x-fapi-customer-ip-address, x-fapi-interaction-id headers on every operation
+- id: fapi-rw
+  conforms: true
+  evidence: OBIE Read/Write v4.0.1 is built on the FAPI 1.0 Advanced (Read/Write) profile
+- id: psd2
+  conforms: true
+  evidence: AISP/PISP/CBPII roles + strong customer authentication (SCA) consent model
+- id: mutual-tls
+  conforms: true
+  evidence: OBIE requires mTLS client authentication with eIDAS/OBIE transport certificates
+- id: message-signing-jws
+  conforms: true
+  evidence: x-jws-signature parameter on payment-initiation write operations (detached JWS)
+- id: idempotency
+  conforms: true
+  evidence: x-idempotency-key parameter on all payment-initiation POST operations
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: errors use the OBIE OBErrorResponse1 envelope (application/json), not application/problem+json
+- id: json-api
+  conforms: false
+- id: scim
+  conforms: false
+- id: odata
+  conforms: false
+- id: fhir-r4
+  conforms: false

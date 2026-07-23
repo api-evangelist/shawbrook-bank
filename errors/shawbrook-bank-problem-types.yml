@@ -1,0 +1,65 @@
+generated: '2026-07-23'
+method: derived
+source: openapi/obie-account-info-openapi.yaml (4xx/5xx responses + OBErrorResponse1 schema)
+format: obie-oberrorresponse1
+note: >-
+  Derived from the OBIE Read/Write standard the bank conforms to. OBIE does NOT
+  use RFC 9457 application/problem+json; error bodies use the OBErrorResponse1
+  envelope (application/json) with a top-level Code/Id/Message and an Errors[]
+  array of {ErrorCode, Message, Path, Url}. ErrorCode values are namespaced
+  UK.OBIE.* strings. Not a Shawbrook-hosted contract.
+envelope:
+  media_type: application/json
+  schema: OBErrorResponse1
+  fields:
+  - Code            # high-level textual error code
+  - Id              # unique reference (x-fapi-interaction-id) for support
+  - Message         # brief high-level message
+  - Errors[]        # array of detailed errors
+  - Errors[].ErrorCode   # UK.OBIE.* namespaced code
+  - Errors[].Message
+  - Errors[].Path        # JSON path to the offending field
+  - Errors[].Url         # link to remediation docs
+problems:
+- status: 400
+  title: Bad request
+  description: Request is malformed or fails OBIE field/business validation; body is OBErrorResponse1.
+- status: 401
+  title: Unauthorized
+  description: Missing/invalid access token, expired consent, or failed mTLS/JWS.
+- status: 403
+  title: Forbidden
+  description: Token lacks the required scope or the consent does not authorise the resource.
+- status: 404
+  title: Not found
+  description: Resource (account, consent, payment) id does not exist or is not visible to the consent.
+- status: 405
+  title: Method not allowed
+- status: 406
+  title: Not acceptable
+  description: Requested representation/Accept header not supported.
+- status: 415
+  title: Unsupported media type
+- status: 429
+  title: Too many requests
+  description: ASPSP throttling; retry after backoff (no standardised Retry-After in OBIE).
+- status: 500
+  title: Internal server error
+  description: Unexpected ASPSP error; body is OBErrorResponse1.
+common_error_codes:
+- code: UK.OBIE.Field.Invalid
+  meaning: A field failed validation.
+- code: UK.OBIE.Field.Missing
+  meaning: A required (conditional) field was omitted.
+- code: UK.OBIE.Field.Unexpected
+  meaning: An unexpected field was present.
+- code: UK.OBIE.Resource.NotFound
+  meaning: The referenced resource does not exist.
+- code: UK.OBIE.Resource.ConsentMismatch
+  meaning: The consent does not match the requested resource.
+- code: UK.OBIE.Rules.ResourceAlreadyExists
+  meaning: Idempotent replay conflict or duplicate resource.
+- code: UK.OBIE.Signature.Invalid
+  meaning: The x-jws-signature failed verification.
+- code: UK.OBIE.UnexpectedError
+  meaning: Generic server-side failure.

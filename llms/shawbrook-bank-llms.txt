@@ -1,0 +1,35 @@
+# Shawbrook Bank
+
+> Shawbrook Bank Limited is a specialist UK savings and lending bank (part of Shawbrook Group plc, LSE-listed October 2025), authorised by the PRA and regulated by the FCA. It focuses on personal and business savings and specialist lending rather than personal current accounts, so it is not a CMA9 bank. As an FCA-authorised deposit-taker it operates within the UK Open Banking / PSD2 framework. Shawbrook publishes no public developer portal; the API specifications below are the shared OBIE standards an FCA-authorised ASPSP conforms to, NOT verified Shawbrook-hosted contracts.
+
+## APIs (OBIE standard, unverified as Shawbrook contracts)
+
+- [Open Data API (v1.3)](https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/): unauthenticated reference data (ATMs, branches, PCA/BCA, SME loans, commercial credit cards).
+- [Account & Transaction Information API (AIS, v4.0.1)](https://standards.openbanking.org.uk/api-specifications/): FAPI-secured account information for AISPs.
+- [Payment Initiation API (PIS, v4.0.1)](https://standards.openbanking.org.uk/api-specifications/): FAPI-secured payment initiation for PISPs; idempotent payment creation.
+- [Confirmation of Funds API (CBPII, v4.0.1)](https://standards.openbanking.org.uk/api-specifications/): FAPI-secured funds confirmation for CBPIIs.
+
+## Specs (raw artifacts in this repo)
+
+- [OBIE Open Data OpenAPI](openapi/obie-opendata-swagger.json)
+- [OBIE Account & Transaction OpenAPI](openapi/obie-account-info-openapi.yaml)
+- [OBIE Payment Initiation OpenAPI](openapi/obie-payment-initiation-openapi.yaml)
+- [OBIE Confirmation of Funds OpenAPI](openapi/obie-confirmation-funds-openapi.yaml)
+
+## Semantics
+
+- [Authentication profile](authentication/shawbrook-bank-authentication.yml): OAuth2 client-credentials (TPP) + authorization-code with PSU SCA; mTLS + detached JWS.
+- [OAuth scopes](scopes/shawbrook-bank-scopes.yml): accounts, payments, fundsconfirmations.
+- [Conventions](conventions/shawbrook-bank-conventions.yml): idempotency (x-idempotency-key), page-based pagination, x-fapi-interaction-id tracing.
+- [Error catalog](errors/shawbrook-bank-problem-types.yml): OBErrorResponse1 envelope, UK.OBIE.* error codes.
+- [Conformance](conformance/shawbrook-bank-conformance.yml): FAPI, PSD2, OAuth2/OIDC, mTLS, JWS, idempotency.
+- [Data model](data-model/shawbrook-bank-data-model.yml): consent → account → balances/transactions/statements; payment-consent → payment.
+- [Lifecycle](lifecycle/shawbrook-bank-lifecycle.yml): OBIE Read/Write v4.0.1, Open Data v1.3; no Shawbrook status page or deprecation policy.
+
+## Docs
+
+- [Website](https://www.shawbrook.co.uk/)
+- [About](https://www.shawbrook.co.uk/about-us/)
+- [Newsroom / Blog](https://www.shawbrook.co.uk/newsroom/)
+- [Help / Support](https://www.shawbrook.co.uk/help/)
+- [OBIE standards](https://standards.openbanking.org.uk/api-specifications/)

@@ -1,0 +1,15 @@
+generated: '2026-07-23'
+method: generated
+source: >-
+  Grounded in verified operationIds from openapi/obie-account-info-openapi.yaml and
+  openapi/obie-payment-initiation-openapi.yaml (OBIE Read/Write v4.0.1 standard the
+  bank conforms to; not verified Shawbrook-hosted contracts).
+skills:
+- file: shawbrook-bank-account-information.md
+  name: Retrieve account information with OBIE AIS
+  api: openapi/obie-account-info-openapi.yaml
+  operations: [CreateAccountAccessConsents, GetAccountAccessConsentsConsentId, GetAccounts, GetAccountsAccountId, GetAccountsAccountIdBalances, GetAccountsAccountIdTransactions]
+- file: shawbrook-bank-domestic-payment.md
+  name: Initiate a domestic payment with OBIE PIS
+  api: openapi/obie-payment-initiation-openapi.yaml
+  operations: [CreateDomesticPaymentConsents, GetDomesticPaymentConsentsConsentId, GetDomesticPaymentConsentsConsentIdFundsConfirmation, CreateDomesticPayments, GetDomesticPaymentsDomesticPaymentId]

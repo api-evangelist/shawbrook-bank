@@ -133,6 +133,34 @@ apis:
   - type: SourceCode
     url: https://github.com/OpenBankingUK/read-write-api-specs
 common:
+- type: AgenticAccess
+  url: agentic-access/shawbrook-bank-agentic-access.yml
+- type: DomainSecurity
+  url: security/shawbrook-bank-domain-security.yml
+- type: OAuthScopes
+  url: scopes/shawbrook-bank-scopes.yml
+- type: Authentication
+  url: authentication/shawbrook-bank-authentication.yml
+- type: WellKnown
+  url: well-known/shawbrook-bank-well-known.yml
+- type: Conformance
+  url: conformance/shawbrook-bank-conformance.yml
+- type: Conventions
+  url: conventions/shawbrook-bank-conventions.yml
+- type: Idempotency
+  url: conventions/shawbrook-bank-conventions.yml
+- type: ErrorCatalog
+  url: errors/shawbrook-bank-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/shawbrook-bank-lifecycle.yml
+- type: DataModel
+  url: data-model/shawbrook-bank-data-model.yml
+- type: LLMsTxt
+  url: llms/shawbrook-bank-llms.txt
+- type: Overlay
+  url: overlays/shawbrook-bank-account-info-overlay.yaml
+- type: AgentSkill
+  url: skills/_index.yml
 - type: Website
   url: https://www.shawbrook.co.uk/
 - type: About

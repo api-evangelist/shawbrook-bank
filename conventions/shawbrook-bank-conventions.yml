@@ -1,0 +1,53 @@
+generated: '2026-07-23'
+method: derived
+source: >-
+  openapi/obie-account-info-openapi.yaml, openapi/obie-payment-initiation-openapi.yaml,
+  openapi/obie-confirmation-funds-openapi.yaml
+note: >-
+  Cross-cutting request/response semantics of the OBIE Read/Write standard the
+  bank conforms to (derived from spec parameters/headers). Not a Shawbrook-hosted
+  contract. Cross-links authentication/, scopes/, errors/, lifecycle/.
+authentication:
+  style: oauth2
+  detail: >-
+    FAPI 1.0 Advanced. Client credentials (TPPOAuth2Security) for TPP-context
+    calls; authorization code with PSU SCA (PSUOAuth2Security) for account-owner
+    consent. mTLS client authentication + detached JWS request signing required.
+  ref: authentication/shawbrook-bank-authentication.yml
+idempotency:
+  supported: true
+  header: x-idempotency-key
+  scope: payment-initiation write operations (all POST create-payment operations)
+  max_length: 40
+  retention: 24 hours (OBIE profile — the same key returns the original resource)
+  additional_signing: x-jws-signature (detached JWS over the request body)
+  note: >-
+    OBIE mandates idempotent creation of payments — replaying a POST with the
+    same x-idempotency-key must not create a duplicate payment.
+pagination:
+  style: page-based
+  request_params: [page]
+  response_fields: [Links.Self, Links.First, Links.Prev, Links.Next, Links.Last, Meta.TotalPages, Meta.FirstAvailableDateTime, Meta.LastAvailableDateTime]
+  note: OBIE collections return Links + Meta blocks; transaction endpoints add fromBookingDateTime/toBookingDateTime range filters.
+request_tracing:
+  header: x-fapi-interaction-id
+  behaviour: >-
+    Client-supplied correlation id echoed back by the ASPSP on the response;
+    present on every Read/Write operation.
+fapi_headers:
+  request: [x-fapi-auth-date, x-fapi-customer-ip-address, x-fapi-interaction-id, x-customer-user-agent, Authorization]
+metadata:
+  block: Meta
+  note: Collection responses carry a Meta object (paging counts + available date-time window).
+versioning:
+  scheme: uri-path
+  detail: OBIE Read/Write API v4.0.1; major version pinned in the resource path per ASPSP deployment.
+  ref: lifecycle/shawbrook-bank-lifecycle.yml
+error_envelope:
+  shape: OBErrorResponse1
+  fields: ['Code', 'Id', 'Message', 'Errors[].ErrorCode', 'Errors[].Message', 'Errors[].Path', 'Errors[].Url']
+  media_type: application/json
+  ref: errors/shawbrook-bank-problem-types.yml
+rate_limit_signaling:
+  documented: false
+  note: OBIE returns HTTP 429 (TooManyRequests) but does not standardise rate-limit response headers; per-ASPSP.

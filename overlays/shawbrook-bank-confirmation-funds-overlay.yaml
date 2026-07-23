@@ -1,0 +1,14 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Shawbrook — OBIE Confirmation of Funds (CBPII)
+  version: 1.0.0
+extends: openapi/obie-confirmation-funds-openapi.yaml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: shawbrook-bank
+    x-apievangelist-standard: OBIE Confirmation of Funds API v4.0.1
+    x-apievangelist-verified: false
+    x-apievangelist-note: >-
+      Shared OBIE Read/Write standard; not a verified Shawbrook-hosted contract.
+    x-apievangelist-security-profile: FAPI 1.0 Advanced (Read/Write) + mTLS + PSD2 SCA

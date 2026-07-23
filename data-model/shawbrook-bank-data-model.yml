@@ -1,0 +1,92 @@
+generated: '2026-07-23'
+method: derived
+source: >-
+  openapi/obie-account-info-openapi.yaml, openapi/obie-payment-initiation-openapi.yaml,
+  openapi/obie-confirmation-funds-openapi.yaml
+note: >-
+  Entity-relationship graph derived from the OBIE Read/Write standard the bank
+  conforms to (resource paths + consent/resource id references). Not a
+  Shawbrook-hosted contract.
+entities:
+- name: AccountAccessConsent
+  path: /account-access-consents
+  key: ConsentId
+  note: AISP consent granting read access to a PSU's accounts and permissions.
+- name: Account
+  path: /accounts
+  key: AccountId
+- name: Balance
+  path: /accounts/{AccountId}/balances
+- name: Transaction
+  path: /accounts/{AccountId}/transactions
+- name: Beneficiary
+  path: /accounts/{AccountId}/beneficiaries
+- name: DirectDebit
+  path: /accounts/{AccountId}/direct-debits
+- name: StandingOrder
+  path: /accounts/{AccountId}/standing-orders
+- name: ScheduledPayment
+  path: /accounts/{AccountId}/scheduled-payments
+- name: Statement
+  path: /accounts/{AccountId}/statements
+  key: StatementId
+- name: Party
+  path: /accounts/{AccountId}/parties
+- name: Product
+  path: /accounts/{AccountId}/product
+- name: Offer
+  path: /accounts/{AccountId}/offers
+- name: DomesticPaymentConsent
+  path: /domestic-payment-consents
+  key: ConsentId
+- name: DomesticPayment
+  path: /domestic-payments
+  key: DomesticPaymentId
+- name: InternationalPaymentConsent
+  path: /international-payment-consents
+  key: ConsentId
+- name: InternationalPayment
+  path: /international-payments
+  key: InternationalPaymentId
+- name: FundsConfirmationConsent
+  path: /funds-confirmation-consents
+  key: ConsentId
+- name: FundsConfirmation
+  path: /funds-confirmations
+relationships:
+- from: AccountAccessConsent
+  to: Account
+  type: has_many
+  via: ConsentId (authorises read of the linked accounts)
+- from: Account
+  to: Balance
+  type: has_many
+  via: AccountId
+- from: Account
+  to: Transaction
+  type: has_many
+  via: AccountId
+- from: Account
+  to: Statement
+  type: has_many
+  via: AccountId
+- from: Statement
+  to: Transaction
+  type: has_many
+  via: AccountId + StatementId
+- from: Account
+  to: Party
+  type: has_many
+  via: AccountId
+- from: DomesticPayment
+  to: DomesticPaymentConsent
+  type: belongs_to
+  via: ConsentId
+- from: InternationalPayment
+  to: InternationalPaymentConsent
+  type: belongs_to
+  via: ConsentId
+- from: FundsConfirmation
+  to: FundsConfirmationConsent
+  type: belongs_to
+  via: ConsentId

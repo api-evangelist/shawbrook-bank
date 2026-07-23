@@ -1,0 +1,16 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Shawbrook — OBIE Payment Initiation (PIS)
+  version: 1.0.0
+extends: openapi/obie-payment-initiation-openapi.yaml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: shawbrook-bank
+    x-apievangelist-standard: OBIE Payment Initiation API v4.0.1
+    x-apievangelist-verified: false
+    x-apievangelist-note: >-
+      Shared OBIE Read/Write standard; not a verified Shawbrook-hosted contract.
+    x-apievangelist-idempotency: x-idempotency-key on all payment POST operations
+    x-apievangelist-request-signing: x-jws-signature (detached JWS)
+    x-apievangelist-security-profile: FAPI 1.0 Advanced (Read/Write) + mTLS + detached JWS + PSD2 SCA

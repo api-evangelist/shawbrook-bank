@@ -1,0 +1,30 @@
+generated: '2026-07-23'
+method: derived
+source: >-
+  openapi info.version fields + OBIE standards governance (standards.openbanking.org.uk).
+  Not a Shawbrook-hosted contract.
+note: >-
+  Shawbrook publishes no developer portal, versioning policy, deprecation policy,
+  SLA, or status page of its own. Lifecycle below reflects the OBIE standard the
+  bank conforms to as an FCA-authorised ASPSP. No StatusPage or Deprecation
+  pointer is emitted because neither a Shawbrook status page nor a Shawbrook
+  deprecation policy could be confirmed.
+versioning:
+  scheme: uri-path
+  read_write_current: v4.0.1
+  open_data_current: v1.3
+  detail: >-
+    OBIE Read/Write API v4.0.1 (Account & Transaction, Payment Initiation,
+    Confirmation of Funds); Open Data API v1.3. Major version pinned in the
+    resource path. OBIE governs the standard release train, not the ASPSP.
+  docs: https://standards.openbanking.org.uk/api-specifications/
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: OBIE retires spec versions via standards releases; no per-Shawbrook deprecation policy or RFC 8594 Sunset support confirmed.
+sla:
+  url: null
+  uptime_target: null
+  note: No Shawbrook API SLA published. OBIE requires ASPSPs to report availability/performance to the regulator but Shawbrook publishes no public status/SLA page.
+status_page: null
+deprecated_operations: []
