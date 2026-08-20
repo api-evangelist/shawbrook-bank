@@ -25,6 +25,17 @@ description: >-
   contracts.
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
+- Financial-Services
+- Banking
+- Savings
+- Specialist Lending
+- Open Banking
+- PSD2
+- OBIE
+- United Kingdom
+- Payments
+- Account Information
+tags_raw:
 - Financial Services
 - Banking
 - Savings
@@ -78,6 +89,11 @@ apis:
   tags:
   - Account Information
   - AISP
+  - Read/Write
+  - FAPI
+  tags_raw:
+  - Account Information
+  - AISP
   - Read Write
   - FAPI
   properties:
@@ -101,6 +117,11 @@ apis:
   tags:
   - Payment Initiation
   - PISP
+  - Read/Write
+  - FAPI
+  tags_raw:
+  - Payment Initiation
+  - PISP
   - Read Write
   - FAPI
   properties:
@@ -121,6 +142,11 @@ apis:
     standard, not a verified Shawbrook contract.
   humanURL: https://standards.openbanking.org.uk/api-specifications/
   tags:
+  - Confirmation of Funds
+  - CBPII
+  - Read/Write
+  - FAPI
+  tags_raw:
   - Confirmation of Funds
   - CBPII
   - Read Write
