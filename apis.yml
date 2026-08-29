@@ -23,6 +23,18 @@ description: >-
   API families are represented here as the shared Open Banking standard
   that an FCA-authorised ASPSP conforms to, not as verified Shawbrook
   contracts.
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Financial-Services
@@ -651,6 +663,8 @@ apis:
   - type: SourceCode
     url: https://github.com/OpenBankingUK/read-write-api-specs
 common:
+- type: IssueTracker
+  url: https://github.com/OpenBankingUK/opendata-api-spec-compiled/issues
 - type: AgenticAccess
   url: agentic-access/shawbrook-bank-agentic-access.yml
 - type: DomainSecurity
