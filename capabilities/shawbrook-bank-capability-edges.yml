@@ -1,0 +1,186 @@
+slug: shawbrook-bank
+provider: Shawbrook Bank
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 18
+edges:
+- tag: Domestic Payments
+  spec_file: shawbrook-bank-domestic-payments-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.92
+  evidence: POST /domestic-payments "Initiate a Domestic Payment"
+  reason: Operations initiate and retrieve domestic payment instructions under the Payment Initiation
+    API — Payment Initiation Management.
+- tag: Domestic Payment Consents
+  spec_file: shawbrook-bank-domestic-payment-consents-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.9
+  evidence: POST /domestic-payment-consents "Create a Domestic Payment Consent"; GET ".../funds-confirmation"
+    "Confirm availability of funds for a Domestic Payment"
+  reason: 'UK Open Banking Payment Initiation API: capture and authorisation of a domestic payment instruction,
+    plus funds-availability validation — squarely Payment Initiation Management.'
+- tag: Domestic Scheduled Payments
+  spec_file: shawbrook-bank-domestic-scheduled-payments-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.9
+  evidence: POST /domestic-scheduled-payments "Initiate a Domestic Scheduled Payment"
+  reason: Initiation and status retrieval of scheduled domestic payment instructions — Payment Initiation
+    Management.
+- tag: International Payments
+  spec_file: shawbrook-bank-international-payments-api-openapi.yml
+  capability_id: BC-1340.40
+  capability_id_l1: BC-1340
+  capability_name: Cross-Border Payment Management
+  confidence: 0.9
+  evidence: POST /international-payments "Initiate an International Payment"
+  reason: Initiation and retrieval of international (cross-border) payment instructions — Cross-Border
+    Payment Management.
+- tag: Domestic Scheduled Payment Consents
+  spec_file: shawbrook-bank-domestic-scheduled-payment-consents-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.88
+  evidence: POST /domestic-scheduled-payment-consents "Create a Domestic Scheduled Payment Consent"
+  reason: Consent (authorisation) capture for a future-dated domestic payment instruction; part of payment
+    instruction capture/authorisation.
+- tag: Domestic Standing Orders
+  spec_file: shawbrook-bank-domestic-standing-orders-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.88
+  evidence: POST /domestic-standing-orders "Submit a Domestic Standing Order"
+  reason: Submission and retrieval of recurring domestic payment instructions — payment instruction capture
+    and authorisation.
+- tag: Domestic Standing Order Consents
+  spec_file: shawbrook-bank-domestic-standing-order-consents-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.85
+  evidence: POST /domestic-standing-order-consents "Create a Domestic Standing Order Consent"; schemas
+    OBFrequency6, NumberOfPayments
+  reason: Consent/authorisation capture for recurring domestic standing order payment instructions under
+    the Payment Initiation API.
+- tag: File Payments
+  spec_file: shawbrook-bank-file-payments-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.85
+  evidence: POST /file-payments "Submit a File Payment"; GET ".../report-file"
+  reason: Submission and status reporting of bulk payment files under Payment Initiation — payment instruction
+    capture and processing status.
+- tag: International Payment Consents
+  spec_file: shawbrook-bank-international-payment-consents-api-openapi.yml
+  capability_id: BC-1340.40
+  capability_id_l1: BC-1340
+  capability_name: Cross-Border Payment Management
+  confidence: 0.85
+  evidence: POST /international-payment-consents "Create an International Payment Consent"; "Confirm Funds
+    Availability for an International Payment"
+  reason: Consent/authorisation capture for cross-border payment instructions, including FX-bearing international
+    consent schemas (OBWriteInternationalConsent5).
+- tag: File Payment Consents
+  spec_file: shawbrook-bank-file-payment-consents-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.82
+  evidence: POST /file-payment-consents "Create a File Payment Consent"; POST ".../file" "Upload a File
+    for a ConsentId"
+  reason: Bulk/batch payment file consent and authorisation within the Payment Initiation API; the file
+    upload is the vehicle for payment instructions, so Payment Initiation Management fits.
+- tag: International Scheduled Payments
+  spec_file: shawbrook-bank-international-scheduled-payments-api-openapi.yml
+  capability_id: BC-1340.40
+  capability_id_l1: BC-1340
+  capability_name: Cross-Border Payment Management
+  confidence: 0.82
+  evidence: POST /international-scheduled-payments — "Initiate an International Scheduled Payment"; schemas
+    OBWriteInternationalScheduledResponse6, OBRegulatoryReporting1
+  reason: UK Open Banking Payment Initiation surface for international (cross-border) scheduled payments;
+    initiation of international payments maps to Cross-Border Payment Management under Payments & Card
+    Management.
+- tag: Parties
+  spec_file: shawbrook-bank-parties-api-openapi.yml
+  capability_id: BC-1300.40
+  capability_id_l1: BC-1300
+  capability_name: Customer Information Management
+  confidence: 0.8
+  evidence: GET /accounts/{AccountId}/parties "Get Parties for an AccountId"; schemas OBParty2, PartyNumber,
+    OBInternalPartyType1Code, EmailAddress
+  reason: Exposes account-holder/party identity and contact details — banking customer information management.
+- tag: Products
+  spec_file: shawbrook-bank-products-api-openapi.yml
+  capability_id: BC-1310.10
+  capability_id_l1: BC-1310
+  capability_name: Product Catalogue Management
+  confidence: 0.8
+  evidence: GET /products "Get Products"; schemas OBPCAData1, OB_InterestRateType1Code_1, OB_FeeFrequency1Code_1
+  reason: Returns banking product definitions with rates and fee structures for accounts — banking product
+    catalogue/master data.
+- tag: ATM
+  spec_file: shawbrook-bank-atm-api-openapi.yml
+  capability_id: BC-1300.50
+  capability_id_l1: BC-1300
+  capability_name: Banking Channels Management
+  confidence: 0.78
+  evidence: GET /atms — 'Open Data ATM API'
+  reason: Open Data endpoint publishing the bank's ATM estate, i.e. physical channel information — Banking
+    Channels Management (branch/ATM). Thin spec (no schemas) so not maximal confidence.
+- tag: Branch
+  spec_file: shawbrook-bank-branch-api-openapi.yml
+  capability_id: BC-1300.50
+  capability_id_l1: BC-1300
+  capability_name: Banking Channels Management
+  confidence: 0.78
+  evidence: GET /branches — 'Open Data Branch API'
+  reason: Open Data endpoint publishing branch locations and details — physical distribution channel information,
+    i.e. Banking Channels Management.
+- tag: International Scheduled Payments Consents
+  spec_file: shawbrook-bank-international-scheduled-payments-consents-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.78
+  evidence: POST /international-scheduled-payment-consents "Create an International Scheduled Payment
+    Consent"; GET .../funds-confirmation "Confirm Funds Availability for an International Scheduled Payment"
+  reason: Consent creation and funds-availability confirmation are the capture, validation and authorisation
+    stage of a payment instruction, i.e. Payment Initiation Management.
+- tag: International Standing Orders
+  spec_file: shawbrook-bank-international-standing-orders-api-openapi.yml
+  capability_id: BC-1340.40
+  capability_id_l1: BC-1340
+  capability_name: Cross-Border Payment Management
+  confidence: 0.75
+  evidence: POST /international-standing-orders "Submit an International Standing Order"; schemas OBFrequency6,
+    NumberOfPayments
+  reason: Submission and retrieval of recurring international payment instructions — cross-border payment
+    initiation within Payments & Card Management.
+- tag: International Standing Orders Consents
+  spec_file: shawbrook-bank-international-standing-orders-consents-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.75
+  evidence: POST /international-standing-order-consents "Create an International Standing Order Consent";
+    schema OBInternalConsentStatus2Code
+  reason: Consent capture/authorisation preceding an international standing order instruction maps to
+    Payment Initiation Management.

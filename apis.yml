@@ -663,6 +663,9 @@ apis:
   - type: SourceCode
     url: https://github.com/OpenBankingUK/read-write-api-specs
 common:
+- type: CapabilityMap
+  url: capabilities/shawbrook-bank-capability-edges.yml
+  name: Shawbrook Bank Business Capability Map
 - type: IssueTracker
   url: https://github.com/OpenBankingUK/opendata-api-spec-compiled/issues
 - type: AgenticAccess
