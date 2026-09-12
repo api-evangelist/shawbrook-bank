@@ -1,29 +1,30 @@
-# Kin Score artifact — shawbrook-bank — 2026-08-12T193225
+# Kin Score artifact — shawbrook-bank — 2026-09-12T062655
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: shawbrook-bank
-  schema_version: 0.11.0
-  scored_at: '2026-08-12'
-  run_ts: 2026-08-12T193225
-  composite: 30.8
+  schema_version: 0.21.0
+  scored_at: '2026-09-12'
+  run_ts: 2026-09-12T062655
+  composite: 33.9
   band: thin
   facets:
     discoverability: 72.2
-    contract_quality: 53.0
-    governance: 11.5
-    operational_transparency: 0.0
-    developer_ergonomics: 19.0
-    commercial_clarity: 10.5
+    contract_quality: 50.9
+    contract_governance: 4.5
+    operational_transparency: 5.3
+    developer_ergonomics: 30.4
+    access_clarity: 10.5
   agent_readiness:
-    score: 42.6
-    band: agent-ready
+    score: 40.8
+    band: agent-native
     dimensions:
       spec_presence: true
       agentic_access: derived
+      reversibility_documented: false
       mcp_server: false
-      auth_clarity: true
-      idempotency: documented
+      auth_clarity: served
+      idempotency: verified
       error_semantics: documented
       openapi_examples: false
       rate_limit_signal: verified
@@ -33,18 +34,22 @@ kin_score:
       consent_identity: false
       agent_card: false
       dry_run_mode: false
+      delegated_identity: served
+      protected_resource_metadata: false
+      dynamic_client_registration: false
+      agentic_commerce: false
   regulatory:
     applies: true
     regime: Banking & Open Finance
     regime_id: banking_open_finance
-    score: 48.1
+    score: 65.8
     matched_via: tags
   provenance:
     skills: derived
     agentic_access: derived
     conformance: derived
     contracts:
-      total: 4
+      total: 34
       derived: 0
       coverage: 0.0
-      callable: 25.0
+      callable: 0.0
