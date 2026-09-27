@@ -25,6 +25,10 @@ description: >-
   contracts.
 deliveryModel:
   model: unknown
+  license_evidence:
+    not_product:
+    - openbankinguk/opendata-api-spec-compiled
+    - openbankinguk/read-write-api-specs
   open_source: unknown
   commercial: false
   callable_host: false
@@ -32,8 +36,8 @@ deliveryModel:
   confidence: low
   source:
   - openapi
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: unknown
@@ -50,7 +54,7 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
-- Financial-Services
+- Financial Services
 - Banking
 - Savings
 - Specialist Lending
@@ -71,6 +75,7 @@ tags_raw:
 - United Kingdom
 - Payments
 - Account Information
+- Financial-Services
 created: '2026-07-23'
 modified: '2026-07-23'
 specificationVersion: '0.23'
@@ -616,6 +621,8 @@ apis:
   description: Endpoint for getting Unsecured SME Loan data
   humanURL: https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/
   tags:
+  - Small Business
+  tags_raw:
   - SME
   properties:
   - type: OpenAPI
