@@ -1,4 +1,4 @@
-# Shawbrook Bank (shawbrook-bank)
+# Shawbrook Bank
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,99 +64,147 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Shawbrook Bank Limited is a specialist UK savings and lending bank (part of Shawbrook Group plc, which listed on the London Stock Exchange in October 2025 after being owned by a consortium led by BC Partners and Pollen Street Capital). It is authorised by the PRA and regulated by the FCA and PRA, with deposits protected by the FSCS. Shawbrook focuses on personal and business savings and specialist lending — property finance, SME and asset finance, and consumer lending — rather than personal current accounts, so it is not one of the CMA-mandated banks (CMA9).
+Shawbrook Bank Limited is a specialist UK savings and lending bank (trading as Shawbrook, part of Shawbrook Group plc, which listed on the London Stock Exchange in October 2025 after being owned by a consortium led by BC Partners and Pollen Street Capital since 2017). It is authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the PRA, and its deposits are protected by the Financial Services Compensation Scheme. Shawbrook focuses on personal and business savings and specialist lending (property finance, SME and asset finance, and consumer lending) rather than personal current accounts, so it is not one of the nine CMA-mandated banks (CMA9). As an FCA-authorised deposit-taker it operates within the UK Open Banking / PSD2 framework: it consumes Open Banking (using account verification via Consents.Online to confirm customers' linked nominated accounts) more than it publishes ASPSP surfaces. As of this review Shawbrook does not operate a public developer portal, and no Shawbrook Open Data (ATM/branch/product) endpoint or bank-specific Read/Write API host could be confirmed live; the OBIE Open Data and Read/Write API families are represented here as the shared Open Banking standard that an FCA-authorised ASPSP conforms to, not as verified Shawbrook contracts.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/shawbrook-bank/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/shawbrook-bank/refs/heads/main/apis.yml)
+**Areas:** Financial Services · Banking · Savings · Specialist Lending · Open Banking · PSD2 · OBIE · United Kingdom · Payments · Account Information
 
-## Open Banking Posture
+## Shawbrook Bank on APIs.io
 
-Shawbrook operates within the UK Open Banking / PSD2 framework as an FCA-authorised deposit-taker, but it is primarily a **consumer** of Open Banking (it uses account verification via Consents.Online to confirm customers' linked nominated accounts) rather than a publisher of ASPSP surfaces. As of this review:
+Everything profiled for Shawbrook Bank is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/shawbrook-bank/](https://apis.io/providers/shawbrook-bank/)** — or go straight to one of the APIs or properties below.
 
-- **No public developer portal** — probes of `developer.shawbrook.co.uk` and `api.shawbrook.co.uk` did not resolve.
-- **No confirmed Open Data endpoint** — probes of `shawbrook.co.uk/open-banking/...` paths and `/.well-known/open-banking` returned HTTP 404. As an online specialist bank with no branch/ATM network, its Open Data obligations are minimal.
-- **No bank-specific Read/Write API host or spec** could be confirmed.
+### APIs (34)
 
-The OBIE Open Data and Read/Write API families below are represented as the **shared UK Open Banking standard** an FCA-authorised ASPSP conforms to — the specs harvested into `openapi/` are the OBIE standard documents, **not** verified Shawbrook contracts.
+- [Shawbrook Bank Account Access Consents API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-account-access-consents-api/) — The Account Access Consents API from Shawbrook Bank — 2 operation(s) for account access consents.
+- [Shawbrook Bank Accounts API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-accounts-api/) — The Accounts API from Shawbrook Bank — 2 operation(s) for accounts.
+- [Shawbrook Bank ATM API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-atm-api/) — Endpoint for getting ATM data
+- [Shawbrook Bank Balances API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-balances-api/) — The Balances API from Shawbrook Bank — 2 operation(s) for balances.
+- [Shawbrook Bank BCA API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-bca-api/) — Endpoint for getting Business Current Account data
+- [Shawbrook Bank Beneficiaries API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-beneficiaries-api/) — The Beneficiaries API from Shawbrook Bank — 2 operation(s) for beneficiaries.
+- [Shawbrook Bank Branch API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-branch-api/) — Endpoint for getting Branch data
+- [Shawbrook Bank CCC API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-ccc-api/) — Endpoint for getting Commercial Credit Card data
+- [Shawbrook Bank Direct Debits API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-direct-debits-api/) — The Direct Debits API from Shawbrook Bank — 2 operation(s) for direct debits.
+- [Shawbrook Bank Domestic Payment Consents API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-domestic-payment-consents-api/) — The Domestic Payment Consents API from Shawbrook Bank — 3 operation(s) for domestic payment consents.
+- [Shawbrook Bank Domestic Payments API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-domestic-payments-api/) — The Domestic Payments API from Shawbrook Bank — 3 operation(s) for domestic payments.
+- [Shawbrook Bank Domestic Scheduled Payment Consents API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-domestic-scheduled-payment-consents-api/) — The Domestic Scheduled Payment Consents API from Shawbrook Bank — 2 operation(s) for domestic scheduled payment consents.
+- [Shawbrook Bank Domestic Scheduled Payments API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-domestic-scheduled-payments-api/) — The Domestic Scheduled Payments API from Shawbrook Bank — 3 operation(s) for domestic scheduled payments.
+- [Shawbrook Bank Domestic Standing Order Consents API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-domestic-standing-order-consents-api/) — The Domestic Standing Order Consents API from Shawbrook Bank — 2 operation(s) for domestic standing order consents.
+- [Shawbrook Bank Domestic Standing Orders API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-domestic-standing-orders-api/) — The Domestic Standing Orders API from Shawbrook Bank — 3 operation(s) for domestic standing orders.
+- [Shawbrook Bank File Payment Consents API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-file-payment-consents-api/) — The File Payment Consents API from Shawbrook Bank — 3 operation(s) for file payment consents.
+- [Shawbrook Bank File Payments API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-file-payments-api/) — The File Payments API from Shawbrook Bank — 4 operation(s) for file payments.
+- [Shawbrook Bank Funds Confirmation Consents API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-funds-confirmation-consents-api/) — The Funds Confirmation Consents API from Shawbrook Bank — 2 operation(s) for funds confirmation consents.
+- [Shawbrook Bank Funds Confirmations API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-funds-confirmations-api/) — The Funds Confirmations API from Shawbrook Bank — 1 operation(s) for funds confirmations.
+- [Shawbrook Bank International Payment Consents API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-international-payment-consents-api/) — The International Payment Consents API from Shawbrook Bank — 3 operation(s) for international payment consents.
+- [Shawbrook Bank International Payments API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-international-payments-api/) — The International Payments API from Shawbrook Bank — 3 operation(s) for international payments.
+- [Shawbrook Bank International Scheduled Payments API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-international-scheduled-payments-api/) — The International Scheduled Payments API from Shawbrook Bank — 3 operation(s) for international scheduled payments.
+- [Shawbrook Bank International Scheduled Payments Consents API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-international-scheduled-payments-consents-api/) — The International Scheduled Payments Consents API from Shawbrook Bank — 3 operation(s) for international scheduled payments consents.
+- [Shawbrook Bank International Standing Orders API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-international-standing-orders-api/) — The International Standing Orders API from Shawbrook Bank — 3 operation(s) for international standing orders.
+- [Shawbrook Bank International Standing Orders Consents API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-international-standing-orders-consents-api/) — The International Standing Orders Consents API from Shawbrook Bank — 2 operation(s) for international standing orders consents.
+- [Shawbrook Bank Offers API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-offers-api/) — The Offers API from Shawbrook Bank — 2 operation(s) for offers.
+- [Shawbrook Bank Parties API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-parties-api/) — The Parties API from Shawbrook Bank — 3 operation(s) for parties.
+- [Shawbrook Bank PCA API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-pca-api/) — Endpoint for getting Personal Current Account data
+- [Shawbrook Bank Products API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-products-api/) — The Products API from Shawbrook Bank — 2 operation(s) for products.
+- [Shawbrook Bank Scheduled Payments API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-scheduled-payments-api/) — The Scheduled Payments API from Shawbrook Bank — 2 operation(s) for scheduled payments.
+- [Shawbrook Bank SME API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-sme-api/) — Endpoint for getting Unsecured SME Loan data
+- [Shawbrook Bank Standing Orders API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-standing-orders-api/) — The Standing Orders API from Shawbrook Bank — 2 operation(s) for standing orders.
+- [Shawbrook Bank Statements API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-statements-api/) — The Statements API from Shawbrook Bank — 5 operation(s) for statements.
+- [Shawbrook Bank Transactions API](https://apis.io/apis/shawbrook-bank/shawbrook-bank-transactions-api/) — The Transactions API from Shawbrook Bank — 2 operation(s) for transactions.
 
-## Tags
+### Published properties
 
-- Financial Services
-- Banking
-- Savings
-- Specialist Lending
-- Open Banking
-- PSD2
-- OBIE
-- United Kingdom
-- Payments
-- Account Information
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Timestamps
+#### Agentic access (1)
 
-- **Created:** 2026-07-23
-- **Modified:** 2026-07-23
+Which operations an agent can call, which act, and which need a human in the loop.
 
-## APIs
+- [Shawbrook Bank Agentic Access](https://apis.io/agentic-access/shawbrook-bank/shawbrook-bank-agentic-access/)
 
-### Shawbrook Open Data API (OBIE Standard, Unverified)
+#### Collections (1)
 
-UK Open Banking Open Data API — the public, unauthenticated reference-data surface (ATMs, branches, current accounts, SME loans, commercial credit cards) defined by the OBIE Open Data Standard v1.3. No Shawbrook-hosted endpoint could be confirmed.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/](https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/)
+- [Open Data API](https://apis.io/collections/shawbrook-bank/open-obie-opendata-swagger/)
 
-#### Properties
+#### Overlays (4)
 
-- [OpenAPI](openapi/obie-opendata-swagger.json) — OBIE Open Data Standard v1.3 (Swagger 2.0), shared standard
-- [Documentation](https://openbankinguk.github.io/opendata-api-docs-pub/v2.4.0/)
-- [Source Code](https://github.com/OpenBankingUK/opendata-api-spec-compiled)
+OpenAPI overlays, including conversational phrasing for each operation.
 
-### Shawbrook Account & Transaction Information API (AIS, OBIE Standard, Unverified)
+- [Shawbrook Bank Account Info Overlay](https://apis.io/overlays/shawbrook-bank/shawbrook-bank-account-info-overlay/)
+- [Shawbrook Bank Confirmation Funds Overlay](https://apis.io/overlays/shawbrook-bank/shawbrook-bank-confirmation-funds-overlay/)
+- [Shawbrook Bank Opendata Overlay](https://apis.io/overlays/shawbrook-bank/shawbrook-bank-opendata-overlay/)
+- [Shawbrook Bank Payment Initiation Overlay](https://apis.io/overlays/shawbrook-bank/shawbrook-bank-payment-initiation-overlay/)
 
-UK Open Banking Read/Write AISP surface per OBIE Account and Transaction API Specification v4.0.1 (OpenAPI 3.0.0). FAPI-secured — OAuth2/OIDC, mutual-TLS, PSD2 SCA — with OBIE/eIDAS-certificate onboarding.
+#### Security (2)
 
-- **Human URL:** [https://standards.openbanking.org.uk/api-specifications/](https://standards.openbanking.org.uk/api-specifications/)
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Properties
+- [Shawbrook Bank Authentication](https://apis.io/security/shawbrook-bank/shawbrook-bank-authentication/)
+- [Shawbrook Bank Domain Security](https://apis.io/security/shawbrook-bank/shawbrook-bank-domain-security/)
 
-- [OpenAPI](openapi/obie-account-info-openapi.yaml) — OBIE standard, shared (not a Shawbrook contract)
-- [Documentation](https://standards.openbanking.org.uk/api-specifications/)
-- [Source Code](https://github.com/OpenBankingUK/read-write-api-specs)
+#### OAuth scopes (1)
 
-### Shawbrook Payment Initiation API (PIS, OBIE Standard, Unverified)
+The permissions the API asks for.
 
-UK Open Banking Read/Write PISP surface per OBIE Payment Initiation API Specification v4.0.1 (OpenAPI 3.0.0). FAPI-secured with OAuth2/OIDC, mutual-TLS, and PSD2 SCA.
+- [Shawbrook Bank Scopes](https://apis.io/scopes/shawbrook-bank/shawbrook-bank-scopes/)
 
-- **Human URL:** [https://standards.openbanking.org.uk/api-specifications/](https://standards.openbanking.org.uk/api-specifications/)
+## Where to find this API
 
-#### Properties
-
-- [OpenAPI](openapi/obie-payment-initiation-openapi.yaml) — OBIE standard, shared
-- [Documentation](https://standards.openbanking.org.uk/api-specifications/)
-- [Source Code](https://github.com/OpenBankingUK/read-write-api-specs)
-
-### Shawbrook Confirmation of Funds API (CBPII, OBIE Standard, Unverified)
-
-UK Open Banking Read/Write CBPII surface per OBIE Confirmation of Funds API Specification v4.0.1 (OpenAPI 3.0.0). FAPI-secured with OAuth2/OIDC, mutual-TLS, and PSD2 SCA.
-
-- **Human URL:** [https://standards.openbanking.org.uk/api-specifications/](https://standards.openbanking.org.uk/api-specifications/)
-
-#### Properties
-
-- [OpenAPI](openapi/obie-confirmation-funds-openapi.yaml) — OBIE standard, shared
-- [Documentation](https://standards.openbanking.org.uk/api-specifications/)
-- [Source Code](https://github.com/OpenBankingUK/read-write-api-specs)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.shawbrook.co.uk/)
-- [About](https://www.shawbrook.co.uk/about-us/)
-- [Blog](https://www.shawbrook.co.uk/newsroom/)
 - [Support](https://www.shawbrook.co.uk/help/)
-- [Contact](https://www.shawbrook.co.uk/contact-us/)
-- [Privacy Policy](https://www.shawbrook.co.uk/privacy-policy/)
-- [LinkedIn](https://www.linkedin.com/company/shawbrook-bank/)
+- [Blog](https://www.shawbrook.co.uk/newsroom/)
+- [Privacy policy](https://www.shawbrook.co.uk/privacy-policy/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 30.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 69.6 |
+| Contract quality | 46.9 |
+| Contract governance | 4.5 |
+| Operational transparency | 5.3 |
+| Developer ergonomics | 30.4 |
+| Access clarity | 10.5 |
+
+**Agent readiness 38.7** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | verified |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | verified |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 40.9** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/shawbrook-bank/](https://apis.io/providers/shawbrook-bank/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Shawbrook Bank: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/shawbrook-bank/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
